@@ -5,509 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Osama Yousry — Backend Developer (Laravel/PHP) & Instructor. Portfolio & CV." />
   <title>Osama Yousry — CV</title>
-
-  <style>
-    :root{
-      --bg: #0b0f14;
-      --panel: rgba(255,255,255,.06);
-      --panel-2: rgba(255,255,255,.08);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --faint: rgba(255,255,255,.52);
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 12px 40px rgba(0,0,0,.35);
-
-      --accent: #6ee7ff;
-      --accent-2: #a78bfa;
-      --good: #34d399;
-
-      --radius: 18px;
-      --radius-sm: 14px;
-
-      --container: 1120px;
-      --pad: 18px;
-
-      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans", sans-serif;
-    }
-
-    /* Optional light mode */
-    @media (prefers-color-scheme: light) {
-      :root{
-        --bg:#f6f7fb;
-        --panel: rgba(0,0,0,.04);
-        --panel-2: rgba(0,0,0,.06);
-        --text: rgba(0,0,0,.88);
-        --muted: rgba(0,0,0,.62);
-        --faint: rgba(0,0,0,.48);
-        --border: rgba(0,0,0,.08);
-        --shadow: 0 14px 45px rgba(0,0,0,.08);
-      }
-    }
-
-    *{ box-sizing: border-box; }
-    html, body{ height:100%; }
-    body{
-      margin:0;
-      font-family: var(--font);
-      background:
-        radial-gradient(1100px 600px at 80% 0%, rgba(167,139,250,.20), transparent 60%),
-        radial-gradient(900px 500px at 15% 15%, rgba(110,231,255,.18), transparent 60%),
-        radial-gradient(700px 500px at 50% 100%, rgba(52,211,153,.10), transparent 60%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a{ color: inherit; text-decoration: none; }
-    a:hover{ opacity:.95; }
-
-    .container{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 26px var(--pad) 40px;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--panel), transparent);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 14px;
-      z-index: 50;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 220px;
-    }
-    .dot{
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 6px rgba(110,231,255,.10);
-    }
-    .brand strong{ font-size: 15px; }
-    .brand small{ display:block; color: var(--muted); margin-top: -2px; font-size: 12px; }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      flex:1;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--muted);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      white-space: nowrap;
-    }
-    .pill:hover{
-      transform: translateY(-1px);
-      border-color: rgba(110,231,255,.25);
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
-      color: var(--text);
-    }
-
-    .cta{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width: 220px;
-      justify-content: flex-end;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(110,231,255,.28);
-      background: linear-gradient(135deg, rgba(110,231,255,.18), rgba(167,139,250,.14));
-      color: var(--text);
-      font-size: 13px;
-      cursor: pointer;
-      user-select: none;
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
-
-    .hero{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .card{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--panel), transparent);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-main{
-      padding: 22px;
-      position: relative;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(52,211,153,.25);
-      background: rgba(52,211,153,.10);
-      color: rgba(255,255,255,.85);
-      font-size: 12px;
-    }
-    .badge i{
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--good);
-      box-shadow: 0 0 0 6px rgba(52,211,153,.12);
-      display:inline-block;
-    }
-
-    .hero h1{
-      margin: 14px 0 6px;
-      font-size: clamp(22px, 3vw, 34px);
-      letter-spacing: .2px;
-      line-height: 1.25;
-    }
-    .subtitle{
-      color: var(--muted);
-      margin: 0 0 14px;
-      font-size: 14px;
-    }
-    .hero p{
-      margin: 0 0 14px;
-      color: var(--text);
-      max-width: 75ch;
-    }
-
-    .highlights{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--muted);
-      font-size: 12px;
-    }
-    .chip b{ color: var(--text); font-weight: 600; }
-
-    .hero-side{
-      padding: 18px;
-      display:flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .profile{
-      display:flex;
-      gap: 12px;
-      align-items:center;
-    }
-    .avatar{
-      width: 78px;
-      height: 78px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      overflow:hidden;
-      background: linear-gradient(135deg, rgba(110,231,255,.15), rgba(167,139,250,.10));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
-    .avatar span{
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,.85);
-      font-size: 18px;
-    }
-
-    .mini{
-      display:grid;
-      gap: 4px;
-    }
-    .mini strong{ font-size: 15px; }
-    .mini small{ color: var(--muted); font-size: 12px; }
-
-    .quick{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    .qrow{
-      padding: 12px 12px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      background: var(--panel);
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .qrow span{ color: var(--muted); font-size: 12px; }
-    .qrow a{ font-size: 13px; color: var(--text); }
-    .qrow a:hover{ text-decoration: underline; text-underline-offset: 4px; }
-
-    section{ margin-top: 18px; }
-    .section-head{
-      display:flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .section-head h2{
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: .2px;
-    }
-    .section-head p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .skills{
-      padding: 18px;
-    }
-    .tagwrap{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .tag{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--panel), transparent);
-      padding: 9px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .timeline{
-      padding: 18px;
-    }
-    .titem{
-      display:grid;
-      grid-template-columns: 44px 1fr;
-      gap: 12px;
-      padding: 14px 0;
-      border-top: 1px dashed var(--border);
-    }
-    .titem:first-child{ border-top: none; padding-top: 0; }
-    .logo{
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      overflow:hidden;
-      background: linear-gradient(135deg, rgba(110,231,255,.14), rgba(167,139,250,.10));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink: 0;
-    }
-    .logo img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-    }
-    .logo span{ font-weight: 800; color: rgba(255,255,255,.85); font-size: 12px; }
-
-    .tmeta{
-      display:flex;
-      align-items:flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .tmeta strong{ font-size: 14px; }
-    .tmeta small{
-      color: var(--muted);
-      font-size: 12px;
-      border: 1px solid var(--border);
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: var(--panel);
-      white-space: nowrap;
-    }
-    .titem p{ margin: 6px 0 0; color: var(--muted); font-size: 13px; }
-    .tlinks{
-      margin-top: 10px;
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .link{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(110,231,255,.18);
-      background: rgba(110,231,255,.06);
-      font-size: 12px;
-      color: var(--text);
-    }
-    .link:hover{ background: rgba(110,231,255,.10); }
-
-    .proj{
-      padding: 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--panel), transparent);
-      box-shadow: var(--shadow);
-      transition: transform .15s ease, border-color .15s ease;
-    }
-    .proj:hover{ transform: translateY(-2px); border-color: rgba(167,139,250,.25); }
-    .proj h3{ margin: 0 0 6px; font-size: 14px; }
-    .proj p{ margin: 0 0 10px; color: var(--muted); font-size: 13px; }
-    .proj .meta{
-      display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      align-items:center;
-      margin-top: 10px;
-    }
-    .pill2{
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: var(--panel);
-      padding: 6px 9px;
-      border-radius: 999px;
-    }
-    .proj a.open{
-      margin-left: auto;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(52,211,153,.22);
-      background: rgba(52,211,153,.08);
-      font-size: 12px;
-      color: var(--text);
-    }
-    .proj a.open:hover{ background: rgba(52,211,153,.12); }
-
-    .contact{
-      padding: 18px;
-    }
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      align-items: start;
-    }
-    .contact .box{
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-    .kvs{
-      display:grid;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .kv{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
-    }
-    .kv span{ color: var(--muted); font-size: 12px; }
-    .kv a{ font-size: 13px; }
-
-    footer{
-      margin-top: 18px;
-      color: var(--faint);
-      text-align: center;
-      font-size: 12px;
-      padding: 10px 0;
-    }
-
-    @media (max-width: 980px){
-      .hero{ grid-template-columns: 1fr; }
-      .cta, .brand{ min-width: auto; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .grid-2{ grid-template-columns: 1fr; }
-      .grid-3{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 560px){
-      .topbar{ padding: 10px; gap: 10px; }
-      nav{ justify-content: flex-start; }
-      .grid-3{ grid-template-columns: 1fr; }
-      .avatar{ width: 70px; height: 70px; border-radius: 16px; }
-      .hero-main{ padding: 18px; }
-    }
-
-    :focus-visible{
-      outline: 2px solid rgba(110,231,255,.55);
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="container">
+
     <!-- Topbar -->
     <header class="topbar">
       <div class="brand">
@@ -522,7 +25,8 @@
         <a class="pill" href="#about">About</a>
         <a class="pill" href="#skills">Skills</a>
         <a class="pill" href="#experience">Experience</a>
-        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#tv-projects">TechVillage Projects</a>
+        <a class="pill" href="#frontend-projects">Frontend Projects</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
 
@@ -535,7 +39,9 @@
     <div class="hero" id="about">
       <div class="card hero-main">
         <span class="badge"><i></i> Available for opportunities • WhatsApp</span>
+
         <h1>Backend Developer (Laravel/PHP) + Programming Instructor</h1>
+
         <p class="subtitle">
           I build Laravel web apps and REST APIs, work with MySQL and Postman, and teach frontend & core programming topics.
         </p>
@@ -547,7 +53,7 @@
 
         <div class="highlights" aria-label="Quick highlights">
           <span class="chip"><b>3+ years</b> experience (Freelance + Companies)</span>
-          <span class="chip"><b>Laravel</b> 7/8/9</span>
+          <span class="chip"><b>Laravel</b> 10/11/12</span>
           <span class="chip"><b>PHP</b> 7/8</span>
           <span class="chip"><b>REST APIs</b> + Postman</span>
           <span class="chip"><b>Teaching</b> Frontend & CS</span>
@@ -557,8 +63,9 @@
       <aside class="card hero-side">
         <div class="profile">
           <div class="avatar" title="Profile photo">
-            <!-- Put your photo here: assets/profile.jpg -->
-            <img src="assets/profile.jpg" alt="Osama Yousry" onerror="this.remove(); this.parentElement.innerHTML='<span>OY</span>';">
+            <!-- Put your photo here: profile.jpg -->
+            <img src="profile.jpg" alt="Osama Yousry"
+                 onerror="this.remove(); this.parentElement.innerHTML='<span>OY</span>';">
           </div>
           <div class="mini">
             <strong>Osama Yousry</strong>
@@ -592,7 +99,7 @@
 
       <div class="card skills">
         <div class="tagwrap">
-          <span class="tag">Laravel 7/8/9</span>
+          <span class="tag">Laravel 10/11/12</span>
           <span class="tag">PHP 7/8</span>
           <span class="tag">REST APIs</span>
           <span class="tag">MySQL</span>
@@ -623,7 +130,8 @@
         <!-- TechVillage -->
         <div class="titem">
           <div class="logo">
-            <img src="assets/companies/techvillage.png" alt="TechVillage" onerror="this.remove(); this.parentElement.innerHTML='<span>TV</span>';">
+            <img src="assets/companies/techvillage.png" alt="TechVillage"
+                 onerror="this.remove(); this.parentElement.innerHTML='<span>TV</span>';">
           </div>
           <div>
             <div class="tmeta">
@@ -633,24 +141,14 @@
             <p>
               Building and maintaining multiple Laravel projects (Web + APIs), improving performance, and delivering features with clean structure.
             </p>
-            <div class="tlinks">
-              <a class="link" href="https://www.gntrips.com/" target="_blank" rel="noreferrer">Gntrips</a>
-              <a class="link" href="https://enjoycareeg.com/" target="_blank" rel="noreferrer">EnjoyCareEG</a>
-              <a class="link" href="https://farahnilecruise.com/" target="_blank" rel="noreferrer">Farah Nile Cruise</a>
-              <a class="link" href="https://adnilecruises.com/" target="_blank" rel="noreferrer">AD Nile Cruises</a>
-              <a class="link" href="https://empowerment.com.eg/" target="_blank" rel="noreferrer">Empowerment</a>
-              <a class="link" href="https://jawdakw.com/" target="_blank" rel="noreferrer">JawdakW</a>
-              <a class="link" href="https://solis.lighting" target="_blank" rel="noreferrer">Solis Lighting</a>
-              <a class="link" href="https://play.google.com/store/apps/details?id=com.Haten" target="_blank" rel="noreferrer">Haten (Android)</a>
-              <a class="link" href="https://play.google.com/store/apps/details?id=com.SaudiBulls" target="_blank" rel="noreferrer">SaudiBulls (Android)</a>
-            </div>
           </div>
         </div>
 
         <!-- Learning Space -->
         <div class="titem">
           <div class="logo">
-            <img src="assets/companies/learningspace.png" alt="Learning Space" onerror="this.remove(); this.parentElement.innerHTML='<span>LS</span>';">
+            <img src="assets/companies/learningspace.png" alt="Learning Space"
+                 onerror="this.remove(); this.parentElement.innerHTML='<span>LS</span>';">
           </div>
           <div>
             <div class="tmeta">
@@ -666,7 +164,8 @@
         <!-- ABM -->
         <div class="titem">
           <div class="logo">
-            <img src="assets/companies/abm.png" alt="ABM" onerror="this.remove(); this.parentElement.innerHTML='<span>ABM</span>';">
+            <img src="assets/companies/abm.png" alt="ABM"
+                 onerror="this.remove(); this.parentElement.innerHTML='<span>ABM</span>';">
           </div>
           <div>
             <div class="tmeta">
@@ -709,11 +208,60 @@
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
+    <!-- TechVillage Projects (After Experience) -->
+    <section id="tv-projects">
       <div class="section-head">
-        <h2>Projects</h2>
-        <p>Selected work + direct links</p>
+        <h2>TechVillage Projects</h2>
+        <p>Production projects I contributed to at TechVillage</p>
+      </div>
+
+      <div class="card timeline">
+        <div class="titem">
+          <div class="logo"><span>WEB</span></div>
+          <div>
+            <div class="tmeta">
+              <strong>Web Projects</strong>
+              <small>Aug 2023 → Present</small>
+            </div>
+            <p>
+              Websites & platforms maintained and developed as part of the team.
+            </p>
+            <div class="tlinks">
+              <a class="link" href="https://www.gntrips.com/" target="_blank" rel="noreferrer">Gntrips</a>
+              <a class="link" href="https://enjoycareeg.com/" target="_blank" rel="noreferrer">EnjoyCareEG</a>
+              <a class="link" href="https://farahnilecruise.com/" target="_blank" rel="noreferrer">Farah Nile Cruise</a>
+              <a class="link" href="https://adnilecruises.com/" target="_blank" rel="noreferrer">AD Nile Cruises</a>
+              <a class="link" href="https://empowerment.com.eg/" target="_blank" rel="noreferrer">Empowerment</a>
+              <a class="link" href="https://jawdakw.com/" target="_blank" rel="noreferrer">JawdakW</a>
+              <a class="link" href="https://solis.lighting" target="_blank" rel="noreferrer">Solis Lighting</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="titem">
+          <div class="logo"><span>APP</span></div>
+          <div>
+            <div class="tmeta">
+              <strong>Android Apps</strong>
+              <small>Aug 2023 → Present</small>
+            </div>
+            <p>
+              Apps I supported within the company ecosystem.
+            </p>
+            <div class="tlinks">
+              <a class="link" href="https://play.google.com/store/apps/details?id=com.Haten" target="_blank" rel="noreferrer">Haten</a>
+              <a class="link" href="https://play.google.com/store/apps/details?id=com.SaudiBulls" target="_blank" rel="noreferrer">SaudiBulls</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frontend Projects (Before Contact) -->
+    <section id="frontend-projects">
+      <div class="section-head">
+        <h2>Frontend Projects</h2>
+        <p>UI templates & demos (GitHub Pages / Netlify)</p>
       </div>
 
       <div class="grid-3">
@@ -741,36 +289,6 @@
           <div class="meta">
             <span class="pill2">Frontend</span>
             <a class="open" href="https://osama250.github.io/Html_Css_Temeplte2/" target="_blank" rel="noreferrer">Open</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <h3>Invoice System (Laravel)</h3>
-          <p>Auth + Excel export + Roles/Permissions + Charts (freelance).</p>
-          <div class="meta">
-            <span class="pill2">Laravel</span>
-            <span class="pill2">MySQL</span>
-            <span class="pill2">AJAX</span>
-          </div>
-        </article>
-
-        <article class="proj">
-          <h3>School Management System (Laravel)</h3>
-          <p>Auth + Livewire + Localization + Notifications + design patterns.</p>
-          <div class="meta">
-            <span class="pill2">Livewire</span>
-            <span class="pill2">Localization</span>
-            <span class="pill2">Toastr</span>
-          </div>
-        </article>
-
-        <article class="proj">
-          <h3>Chat App (Laravel)</h3>
-          <p>Chat application using Laravel + SQL + Livewire.</p>
-          <div class="meta">
-            <span class="pill2">Laravel</span>
-            <span class="pill2">Livewire</span>
-            <span class="pill2">SQL</span>
           </div>
         </article>
       </div>
@@ -857,7 +375,7 @@
             <div style="margin-top: 12px; padding: 12px; border-radius: 14px; border: 1px solid var(--border); background: var(--panel);">
               <div style="color: var(--muted); font-size: 12px;">Assets paths (optional):</div>
               <div style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 12px; color: var(--text); margin-top: 6px;">
-                assets/profile.jpg<br/>
+                profile.jpg<br/>
                 assets/companies/techvillage.png<br/>
                 assets/companies/abm.png<br/>
                 assets/companies/learningspace.png
@@ -869,7 +387,7 @@
     </section>
 
     <footer>
-      © <span id="y"></span> Osama Yousry — Built with HTML & CSS (Dark UI)
+      © <span id="y"></span> Osama Yousry • Backend Developer (Laravel/PHP) & Instructor
     </footer>
   </div>
 
