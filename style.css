@@ -37,7 +37,6 @@
 
 *{ box-sizing: border-box; }
 html, body{ height:100%; }
-
 body{
   margin:0;
   font-family: var(--font);
@@ -232,10 +231,10 @@ nav{
   align-items:center;
 }
 
-/* ✅ PERFECT CIRCLE AVATAR */
+/* ✅ profile image circle 100% */
 .avatar{
-  width: 92px;
-  height: 92px;
+  width: 78px;
+  height: 78px;
   border-radius: 999px;
   border: 1px solid var(--border);
   overflow:hidden;
@@ -248,8 +247,8 @@ nav{
   width:100%;
   height:100%;
   object-fit: cover;
-  border-radius: 999px;
   display:block;
+  border-radius: 999px;
 }
 .avatar span{
   font-weight: 800;
@@ -314,9 +313,7 @@ section{ margin-top: 18px; }
   gap: 14px;
 }
 
-.skills{
-  padding: 18px;
-}
+.skills{ padding: 18px; }
 .tagwrap{
   display:flex;
   flex-wrap: wrap;
@@ -332,9 +329,7 @@ section{ margin-top: 18px; }
   color: var(--muted);
 }
 
-.timeline{
-  padding: 18px;
-}
+.timeline{ padding: 18px; }
 .titem{
   display:grid;
   grid-template-columns: 44px 1fr;
@@ -439,9 +434,7 @@ section{ margin-top: 18px; }
 }
 .proj a.open:hover{ background: rgba(52,211,153,.12); }
 
-.contact{
-  padding: 18px;
-}
+.contact{ padding: 18px; }
 .contact-grid{
   display:grid;
   grid-template-columns: 1.1fr .9fr;
@@ -454,6 +447,7 @@ section{ margin-top: 18px; }
   border-radius: var(--radius);
   padding: 14px;
 }
+
 .kvs{
   display:grid;
   gap: 10px;
@@ -472,6 +466,20 @@ section{ margin-top: 18px; }
 .kv span{ color: var(--muted); font-size: 12px; }
 .kv a{ font-size: 13px; }
 
+/* ✅ Icons beside text */
+.social-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.social-link .icon{
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: .85;
+}
+.social-link:hover .icon{ opacity: 1; }
+
 footer{
   margin-top: 18px;
   color: var(--faint);
@@ -487,13 +495,12 @@ footer{
   .grid-2{ grid-template-columns: 1fr; }
   .grid-3{ grid-template-columns: 1fr 1fr; }
 }
-
 @media (max-width: 560px){
   .topbar{ padding: 10px; gap: 10px; }
   nav{ justify-content: flex-start; }
   .grid-3{ grid-template-columns: 1fr; }
+  .avatar{ width: 70px; height: 70px; border-radius: 999px; }
   .hero-main{ padding: 18px; }
-  .avatar{ width: 76px; height: 76px; }
 }
 
 :focus-visible{
@@ -501,3 +508,31 @@ footer{
   outline-offset: 3px;
   border-radius: 10px;
 }
+.qrow .label{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.qrow .label .icon{
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: .85;
+}
+.kv .label{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.kv .label .icon{
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: .9;
+}
+
