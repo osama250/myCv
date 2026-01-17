@@ -535,4 +535,113 @@ footer{
   fill: currentColor;
   opacity: .9;
 }
+/* =========================
+   Mobile & Small Screens Fix
+   ========================= */
+
+/* 1) Better wrapping for long links everywhere */
+a { word-break: break-word; }
+.qrow a, .kv a { overflow-wrap: anywhere; }
+
+/* 2) Make rows look good when screen is tight */
+.qrow, .kv {
+  gap: 12px;
+}
+
+/* ========== <= 980px (tablet & small laptops) ========== */
+@media (max-width: 980px){
+  /* Keep sticky but less cramped */
+  .topbar{
+    padding: 12px;
+  }
+
+  /* Projects: 2 columns */
+  .grid-3{ grid-template-columns: 1fr 1fr; }
+
+  /* Contact: one column */
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+/* ========== <= 720px (phones + small tablets) ========== */
+@media (max-width: 720px){
+  /* TOPBAR becomes 2 rows: (brand + cta) then nav */
+  .topbar{
+    position: sticky;
+    top: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand cta"
+      "nav   nav";
+    row-gap: 10px;
+  }
+  .brand{ grid-area: brand; }
+  .cta{ grid-area: cta; justify-content: flex-end; }
+  nav{
+    grid-area: nav;
+    flex-wrap: nowrap;              /* no multi-line pills */
+    justify-content: flex-start;
+    overflow-x: auto;               /* horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    gap: 8px;
+  }
+  nav::-webkit-scrollbar{ height: 6px; }
+  nav::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.12); border-radius: 999px; }
+
+  /* HERO: stack + better spacing */
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .hero-main{ padding: 18px; }
+  .hero-side{ padding: 16px; }
+
+  /* Chips and tags: nicer on mobile */
+  .highlights{ gap: 8px; }
+  .chip{ padding: 7px 10px; }
+
+  /* Projects: 1 column */
+  .grid-3{ grid-template-columns: 1fr; }
+
+  /* Make the “Open” button not push weirdly */
+  .proj .meta{ gap: 8px; }
+  .proj a.open{ margin-left: 0; }
+}
+
+/* ========== <= 520px (small phones) ========== */
+@media (max-width: 520px){
+  /* Reduce container padding */
+  .container{ padding: 18px 14px 34px; }
+
+  /* Topbar: allow CTA to wrap nicely */
+  .btn{ padding: 9px 12px; font-size: 12px; }
+  .pill{ padding: 8px 10px; font-size: 12px; }
+
+  /* Profile: make avatar a bit smaller */
+  .avatar{ width: 64px; height: 64px; border-radius: 999px; } /* keep circle */
+
+  /* QROW / KV: stack label above value for clean look */
+  .qrow, .kv{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .qrow a, .kv a{
+    width: 100%;
+  }
+
+  /* Timeline item: more space */
+  .titem{
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+  .logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+}
+
+/* Optional: give sections anchors space under sticky header */
+section{ scroll-margin-top: 90px; }
 
